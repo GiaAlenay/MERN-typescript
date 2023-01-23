@@ -1,21 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route,Routes } from 'react-router-dom';
-import { ListProducts } from './Components/Videos/VideoList';
-import { VideoForm } from './Components/Videos/VideoForm';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ListProducts } from "./Components/Videos/VideoList";
+import { VideoForm } from "./Components/Videos/VideoForm";
+import { NavBar } from "./Components/NavBar/NavBar";
+import { ToastContainer } from "react-toastify";
+
+import "bootswatch/dist/pulse/bootstrap.min.css";
+import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<ListProducts/>}/>
-        <Route path='/new-video'element={<VideoForm/>} />
-      </Routes>
+      <NavBar />
+      <div className="container p-4">
+        <Routes>
+          <Route path="/" element={<ListProducts />} />
+          <Route path="/new-video" element={<VideoForm />} />
+        </Routes>
+        <ToastContainer />
+      </div>
     </BrowserRouter>
   </React.StrictMode>
 );

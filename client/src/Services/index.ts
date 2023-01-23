@@ -1,16 +1,20 @@
 import axios from "axios";
-export const getAllVideos=async()=>{
-    
+import { interVideos } from "../Components/Videos/Video";
+const baseUrl='http://localhost:5000'
+
+export const getAllVideos=async()=>{    
     try {
         const response= await axios({
-            url:'http://localhost:5000/video',
+            url:(`${baseUrl}/video`),
             method:'GET'
-        })
-      
-            return response          
-        
+        })      
+            return response        
         
     } catch (error) {
         console.log(error)
     }
+}
+
+export const createVideos=async(video:interVideos)=>{
+   return await axios.post(`${baseUrl}/video`,video)
 }

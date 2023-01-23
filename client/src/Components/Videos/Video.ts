@@ -1,7 +1,7 @@
 
 export interface interVideos{
-    description:String;
-    title: String;
-    url: String;
-    _id:String
+    description:string;
+    title?: string;
+    url: string;
+    _id?:string
 }
